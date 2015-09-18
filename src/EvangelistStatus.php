@@ -15,13 +15,17 @@ class EvangelistStatus
         $this->username = $username;
     }
 
-    public function getStatus() {
-
+    public function getUserData() {
         try {
-            $new_result = UserData::makeApiCall($this->username);
+            return UserData::makeApiCall($this->username);
         } catch(InvalidUrlException $e) {
             return $e->getErrorMessage();
         }
+    }
+
+    public function getStatus() {
+
+        $new_result = $this->getUserData();
 
         $noOfRepo = $new_result->public_repos;
 

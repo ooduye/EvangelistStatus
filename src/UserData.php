@@ -38,6 +38,5 @@ class UserData {
 
         // Decode the json in associative array
         return json_decode($result);
-
     }
 }
