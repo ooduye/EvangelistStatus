@@ -14,7 +14,7 @@ An agnostic package that grades Github users based on the number of open source 
 Via Composer
 
 ``` bash
-$ composer require league/EvangelistStatus
+$ composer require ooduye/evangelist-status
 ```
 
 ## Usage
@@ -50,17 +50,17 @@ If you discover any security related issues, please email oluwayemisioduye@gmail
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/league/evangeliststatus.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/ooduye/evangeliststatus.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/andela-ooduye/EvangelistStatus/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/thephpleague/evangeliststatus.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/thephpleague/evangeliststatus.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/league/evangeliststatus.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ooduye/evangeliststatus.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/league/evangeliststatus
+[link-packagist]: https://packagist.org/packages/ooduye/evangeliststatus
 [link-travis]: hhttps://travis-ci.org/andela-ooduye/EvangelistStatus
 [link-scrutinizer]: https://scrutinizer-ci.com/g/thephpleague/evangeliststatus/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/thephpleague/evangeliststatus
-[link-downloads]: https://packagist.org/packages/league/evangeliststatus
+[link-downloads]: https://packagist.org/packages/ooduye/evangeliststatus
 [link-author]: https://github.com/andela-ooduye
 [link-contributors]: ../../contributors
