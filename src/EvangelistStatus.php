@@ -15,54 +15,77 @@ class EvangelistStatus
         $this->username = $username;
     }
 
-    public function getUserData() {
+    /**
+     * @return mixed|string
+     */
+    private function getUserData()
+    {
         try {
             return UserData::makeApiCall($this->username);
         } catch(InvalidUrlException $e) {
             return $e->getErrorMessage();
+        } catch(InvalidUsernameException $e) {
+            return $e->getErrorMessage();
         }
     }
 
-    public function getStatus() {
+    public function getNumberOfRepos() {
+        return $this->getUserData()->public_repos;
+    }
 
-        $new_result = $this->getUserData();
+    private function getName() {
+        return $this->getUserData()->name;
+    }
 
-        $noOfRepo = $new_result->public_repos;
+    private function getUserCompany() {
+        return $this->getUserData()->company;
+    }
 
-        if($new_result->name) {
-            $name = $new_result->name;
+    private function UserNameAndCompany() {
+        if($this->getName()) {
 
-            if(! $new_result->company) {
-                $company = ". ";
+            if(! $this->getUserCompany()) {
+                return $this->getName() . ". ";
             } else {
-                $company = " of " . $new_result->company . ". ";
+                return $this->getName() . " of " . $this->getUserCompany() . ". ";
             }
 
         } else {
-            $name = "";
-            $company = "";
+            return "";
         }
+    }
 
-        $createdAt = substr($new_result->created_at, 0, 4);
+    public function getUserCreatedYear() {
+        return substr($this->getUserData()->created_at, 0, 4);
+    }
 
-        if($new_result->followers === 0) {
-            $followers = "no";
+    private function getUserFollowers() {
+
+        if($this->getUserData()->followers === 0) {
+            return "no";
         } else {
-            $followers = $new_result->followers;
+            return $this->getUserData()->followers;
         }
+    }
 
-        switch ($noOfRepo) {
-            case $noOfRepo < 5 :
-                return "Damn it!! " .  $name  . $company . "Even upon registration to the glorious Github community in the year " . $createdAt . "AD and with " . $followers . " fellow evangelists looking up to thee, yet ye have refused to preach the gospel of open source development. Gear up! Oh Ye Prodigal Evangelist.";
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+
+        switch ($this->getNumberOfRepos()) {
+            case $this->getNumberOfRepos() < 5 :
+                return "Damn it!! " .  $this->UserNameAndCompany() . "Even upon registration to the glorious Github community in the year " . $this->getUserCreatedYear() . "AD and with " . $this->getUserFollowers() . " fellow evangelists looking up to thee, yet ye have refused to preach the gospel of open source development. Gear up! Oh Ye Prodigal Evangelist.";
                 break;
-            case $noOfRepo >= 5 && $noOfRepo <= 10 :
-                return $name . $company . "Welcome to the circle of open source evangelist. Ye joined the Github community in the year " . $createdAt . "AD. Currently, " . $followers . " fellow evangelists are looking up to you. Do not disappoint the community. Ye are hereby crowned Junior Evangelist.";
+            case $this->getNumberOfRepos() >= 5 && $this->getNumberOfRepos() <= 10 :
+                return $this->UserNameAndCompany() . "Welcome to the circle of open source evangelist. Ye joined the Github community in the year " . $this->getUserCreatedYear() . "AD. Currently, " . $this->getUserFollowers() . " fellow evangelists are looking up to you. Do not disappoint the community. Ye are hereby crowned Junior Evangelist.";
                 break;
-            case $noOfRepo >= 11 && $noOfRepo <= 20 :
-                return $name . $company . "Ye joined the Github community in the year " . $createdAt . "AD. Ye are on the right path to showing the community and " . $followers . " fellow evangelists looking up to thee the way of open source evangelism. For this, the world thanks thee and hereby crown thee Associate Evangelist.";
+            case $this->getNumberOfRepos() >= 11 && $this->getNumberOfRepos() <= 20 :
+                return $this->UserNameAndCompany() . "Ye joined the Github community in the year " . $this->getUserCreatedYear() . "AD. Ye are on the right path to showing the community and " . $this->getUserFollowers() . " fellow evangelists looking up to thee the way of open source evangelism. For this, the world thanks thee and hereby crown thee Associate Evangelist.";
                 break;
-            case $noOfRepo >= 21 :
-                return $name . $company . "The Great One! Oh Mighty Evangelist! Ye joined the Github community in the year " . $createdAt . "AD. Ye have shown the community and " . $followers . " fellow evangelist looking up to thee the right way to open source evangelism. For this, the world thanks and respects thee. Ye are hereby crowned the Most Senior Evangelist. Thank you for making the world a better place.";
+            case $this->getNumberOfRepos() >= 21 :
+                return $this->UserNameAndCompany() . "The Great One! Oh Mighty Evangelist! Ye joined the Github community in the year " . $this->getUserCreatedYear() . "AD. Ye have shown the community and " . $this->getUserFollowers() . " fellow evangelist looking up to thee the right way to open source evangelism. For this, the world thanks and respects thee. Ye are hereby crowned the Most Senior Evangelist. Thank you for making the world a better place.";
                 break;
             default:
                 echo "Ye are not an Evangelist of any kind";

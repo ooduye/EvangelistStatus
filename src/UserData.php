@@ -2,11 +2,23 @@
 
 namespace League\EvangelistStatus;
 
+/**
+ * Class UserData
+ * @package League\EvangelistStatus
+ */
 class UserData {
+    // Declaring static variables needed for $url build
     private static $userUrl = "https://api.github.com/users/";
     private static $authKey = "?client_id=92e95931025ef214002d&client_secret=a4c5fb9e89d0f073f65394933f4871a541c00818";
 
-    static function makeApiCall($username){
+    /**
+     * @param $username
+     * @return mixed
+     * @throws InvalidUrlException
+     * @throws InvalidUsernameException
+     */
+    static function makeApiCall($username)
+    {
         $url = self::$userUrl . $username . self::$authKey;
 
         // Initiate curl
@@ -37,6 +49,12 @@ class UserData {
         curl_close($curl);
 
         // Decode the json in associative array
-        return json_decode($result);
+        $decoded_result = json_decode($result);
+
+        if($decoded_result->id){
+            return $decoded_result;
+        } else {
+            throw new InvalidUsernameException($decoded_result->message);
+        }
     }
 }
