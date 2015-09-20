@@ -1,17 +1,18 @@
 {
     "name": "league/EvangelistStatus",
-    "description": "An agnostic package that Github users based on the number of open source projects they own",
+    "description": "An agnostic package that grades Github users based on the number of open source projects they own",
     "keywords": [
         "league",
         "EvangelistStatus"
     ],
-    "homepage": "https://github.com/thephpleague/evangeliststatus",
+    "homepage": "https://github.com/andela-ooduye/EvangelistStatus",
     "license": "MIT",
     "authors": [
         {
             "name": "Oduye Oluwayemisi",
             "email": "oduye.oluwayemisi@andela.com",
-            "role": "Developer"
+            "role": "Developer",
+            "homepage": "http://oluwayemisioduye.com"
         }
     ],
     "require": {
