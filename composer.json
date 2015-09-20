@@ -1,5 +1,5 @@
 {
-    "name": "league/EvangelistStatus",
+    "name": "league/evangelist-status",
     "description": "An agnostic package that grades Github users based on the number of open source projects they own",
     "keywords": [
         "league",
