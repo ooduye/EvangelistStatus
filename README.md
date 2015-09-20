@@ -58,7 +58,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/ooduye/evangeliststatus.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/ooduye/evangeliststatus
-[link-travis]: hhttps://travis-ci.org/andela-ooduye/EvangelistStatus
+[link-travis]: https://travis-ci.org/andela-ooduye/EvangelistStatus
 [link-scrutinizer]: https://scrutinizer-ci.com/g/thephpleague/evangeliststatus/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/thephpleague/evangeliststatus
 [link-downloads]: https://packagist.org/packages/ooduye/evangeliststatus
