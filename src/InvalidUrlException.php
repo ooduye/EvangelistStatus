@@ -2,7 +2,8 @@
 
 namespace League\EvangelistStatus;
 
-class InvalidUrlException extends \Exception {
+class InvalidUrlException extends \Exception
+{
 
     protected $message;
 
@@ -14,5 +15,3 @@ class InvalidUrlException extends \Exception {
     }
 
 }
-
-?>

@@ -11,16 +11,18 @@ class EvangelistStatusExceptionTest extends \PHPUnit_Framework_TestCase
     /**
      * Test that invalid username throws a message
      */
-    public function testInvalidUsernameExceptionMessage() {
+    public function testInvalidUsernameExceptionMessage()
+    {
         $status = new EvangelistStatus("andela-vdugri");
         $result = $status->getUserData();
         $this->assertEquals("Error: Username Not Found", $result);
     }
 
     /**
-     * @throws \League\EvangelistStatus\InvalidUrlException
+     * @throws \League\EvangelistStatus\InvalidUsernameException
      */
-    public function testInvalidUsernameException() {
+    public function testInvalidUsernameException()
+    {
         try {
             // ... Code that is expected to raise an exception ...
             UserData::makeApiCall("andela-vdugri");

@@ -33,19 +33,23 @@ class EvangelistStatus
         }
     }
 
-    public function getNumberOfRepos() {
+    public function getNumberOfRepos()
+    {
         return $this->getUserData()->public_repos;
     }
 
-    private function getName() {
+    private function getName()
+    {
         return $this->getUserData()->name;
     }
 
-    private function getUserCompany() {
+    private function getUserCompany()
+    {
         return $this->getUserData()->company;
     }
 
-    private function UserNameAndCompany() {
+    private function UserNameAndCompany()
+    {
         if($this->getName()) {
 
             if(! $this->getUserCompany()) {
@@ -53,17 +57,18 @@ class EvangelistStatus
             } else {
                 return $this->getName() . " of " . $this->getUserCompany() . ". ";
             }
-
         } else {
             return "";
         }
     }
 
-    public function getUserCreatedYear() {
+    public function getUserCreatedYear()
+    {
         return substr($this->getUserData()->created_at, 0, 4);
     }
 
-    private function getUserFollowers() {
+    private function getUserFollowers()
+    {
 
         if($this->getUserData()->followers === 0) {
             return "no";

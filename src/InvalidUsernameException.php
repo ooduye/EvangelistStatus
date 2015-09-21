@@ -2,7 +2,8 @@
 
 namespace League\EvangelistStatus;
 
-class InvalidUsernameException extends \Exception {
+class InvalidUsernameException extends \Exception
+{
 
     protected $message;
 
@@ -16,5 +17,3 @@ class InvalidUsernameException extends \Exception {
     }
 
 }
-
-?>

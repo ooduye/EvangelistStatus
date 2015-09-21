@@ -9,7 +9,8 @@ class EvangelistStatusTest extends \PHPUnit_Framework_TestCase
     /**
      * Test that number of Repo is not empty
      */
-    public function testGetNoOfRepo() {
+    public function testGetNoOfRepo()
+    {
         $status = new EvangelistStatus("andela-vdugeri");
         $noOfRepo = $status->getNumberOfRepos();
         $this->assertNotNull($noOfRepo);
@@ -18,7 +19,8 @@ class EvangelistStatusTest extends \PHPUnit_Framework_TestCase
     /**
      * Test that User account was created in the right year
      */
-    public function testUserCreatedYear() {
+    public function testUserCreatedYear()
+    {
         $status = new EvangelistStatus("andela-vdugeri");
         $result = $status->getUserCreatedYear();
         $this->assertEquals(2013, $result);

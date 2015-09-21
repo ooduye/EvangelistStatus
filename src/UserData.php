@@ -51,7 +51,7 @@ class UserData {
         // Decode the json in associative array
         $decoded_result = json_decode($result);
 
-        if(isset($decoded_result->id)){
+        if(isset($decoded_result->id)) {
             return $decoded_result;
         } else {
             throw new InvalidUsernameException($decoded_result->message);
