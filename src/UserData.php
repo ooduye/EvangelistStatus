@@ -42,7 +42,7 @@ class UserData {
         // Handing Errors of curl
         if(curl_errno($curl))
         {
-            throw new InvalidUrlException($curl);
+            throw new InvalidUrlException();
         }
 
         // Closing
@@ -51,7 +51,7 @@ class UserData {
         // Decode the json in associative array
         $decoded_result = json_decode($result);
 
-        if($decoded_result->id){
+        if(isset($decoded_result->id)){
             return $decoded_result;
         } else {
             throw new InvalidUsernameException($decoded_result->message);

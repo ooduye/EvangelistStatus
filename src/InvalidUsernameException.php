@@ -12,7 +12,7 @@ class InvalidUsernameException extends \Exception {
 
     public function getErrorMessage()
     {
-        return "Error: " . $this->message;
+        return "Error: Username " . $this->message;
     }
 
 }

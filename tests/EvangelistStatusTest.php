@@ -6,30 +6,33 @@ use League\EvangelistStatus\EvangelistStatus;
 
 class EvangelistStatusTest extends \PHPUnit_Framework_TestCase
 {
-
-
     /**
-     * Test that true does in fact equal true
+     * Test that number of Repo is not empty
      */
     public function testGetNoOfRepo() {
-        $nacho = new EvangelistStatus("andela-vdugeri");
-        $noOfRepo = $nacho->getNumberOfRepos();
+        $status = new EvangelistStatus("andela-vdugeri");
+        $noOfRepo = $status->getNumberOfRepos();
         $this->assertNotNull($noOfRepo);
     }
 
+    /**
+     * Test that User account was created in the right year
+     */
     public function testUserCreatedYear() {
-        $nacho = new EvangelistStatus("andela-vdugeri");
-        $result = $nacho->getUserCreatedYear();
+        $status = new EvangelistStatus("andela-vdugeri");
+        $result = $status->getUserCreatedYear();
         $this->assertEquals(2013, $result);
     }
 
+    /**
+     * Test that appropriate status is given to user based on number of repositories
+     */
     public function testGetStatus()
     {
+        $status = new EvangelistStatus("andela-vdugeri");
 
-        $nacho = new EvangelistStatus("andela-vdugeri");
-
-        $noOfRepo = $nacho->getNumberOfRepos();
-        $result = $nacho->getStatus();
+        $noOfRepo = $status->getNumberOfRepos();
+        $result = $status->getStatus();
 
         if ($noOfRepo < 5) {
             $this->assertRegexp('/Prodigal Evangelist/', $result);

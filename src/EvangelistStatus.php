@@ -2,6 +2,10 @@
 
 namespace League\EvangelistStatus;
 
+/**
+ * Class EvangelistStatus
+ * @package League\EvangelistStatus
+ */
 class EvangelistStatus
 {
     private $username;
@@ -18,7 +22,7 @@ class EvangelistStatus
     /**
      * @return mixed|string
      */
-    private function getUserData()
+    public function getUserData()
     {
         try {
             return UserData::makeApiCall($this->username);
