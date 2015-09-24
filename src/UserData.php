@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * This class does the fetching of the user's data
+ * for package League\EvangelistStatus.
+ *
+ * @package League\EvangelistStatus
+ * @author  Oluwayemisi ODUYE <oluwayemisioduye@gmail.com>
+ */
+
 namespace League\EvangelistStatus;
 
 /**
@@ -7,6 +15,7 @@ namespace League\EvangelistStatus;
  * @package League\EvangelistStatus
  */
 class UserData {
+
     // Declaring static variables needed for $url build
     private static $userUrl = "https://api.github.com/users/";
     private static $authKey = "?client_id=92e95931025ef214002d&client_secret=a4c5fb9e89d0f073f65394933f4871a541c00818";
