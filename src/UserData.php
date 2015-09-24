@@ -42,7 +42,7 @@ class UserData {
         // Handing Errors of curl
         if(curl_errno($curl))
         {
-            throw new InvalidUrlException();
+            throw new InvalidUrlException($curl);
         }
 
         // Closing
