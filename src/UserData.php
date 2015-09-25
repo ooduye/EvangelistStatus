@@ -10,7 +10,7 @@
 
 namespace League\EvangelistStatus;
 
-use \Dotenv\Dotenv;
+use Dotenv\Dotenv;
 
 /**
  * Class UserData
