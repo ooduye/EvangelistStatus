@@ -25,11 +25,15 @@ class UserData {
      * @throws InvalidUrlException
      * @throws InvalidUsernameException
      */
-    public static function makeApiCall($username)
-    {
 
+    private static function loadDotEnv(){
         $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../');
         $dotenv->load();
+    }
+
+    public static function makeApiCall($username)
+    {
+        self::loadDotEnv();
 
         $url = self::$userUrl . $username . '?client_id=' . getenv('GITHUB_CLIENT_ID') . '&client_secret=' . getenv('GITHUB_CLIENT_SECRET');
 
