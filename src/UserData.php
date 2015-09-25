@@ -10,6 +10,8 @@
 
 namespace League\EvangelistStatus;
 
+use \Dotenv\Dotenv;
+
 /**
  * Class UserData
  * @package League\EvangelistStatus
@@ -27,7 +29,7 @@ class UserData {
      */
 
     private static function loadDotEnv(){
-        $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../');
+        $dotenv = new Dotenv(__DIR__ . '/../');
         $dotenv->load();
     }
 
