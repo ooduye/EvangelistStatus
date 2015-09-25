@@ -22,17 +22,19 @@ class UserData {
     private static $userUrl = "https://api.github.com/users/";
 
     /**
-     * @param $username
-     * @return mixed
-     * @throws InvalidUrlException
-     * @throws InvalidUsernameException
+     * Loading the enviroment variables to used
      */
-
     private static function loadDotEnv(){
         $dotenv = new Dotenv(__DIR__ . '/../');
         $dotenv->load();
     }
 
+    /**
+     * @param $username
+     * @return mixed
+     * @throws InvalidUrlException
+     * @throws InvalidUsernameException
+     */
     public static function makeApiCall($username)
     {
         self::loadDotEnv();
