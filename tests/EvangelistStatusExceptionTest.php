@@ -6,6 +6,10 @@ use League\EvangelistStatus\EvangelistStatus;
 use League\EvangelistStatus\InvalidUsernameException;
 use League\EvangelistStatus\UserData;
 
+/**
+ * Class EvangelistStatusExceptionTest
+ * @package League\EvangelistStatus\Test
+ */
 class EvangelistStatusExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**

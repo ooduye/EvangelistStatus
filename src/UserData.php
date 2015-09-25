@@ -18,7 +18,6 @@ class UserData {
 
     // Declaring static variables needed for $url build
     private static $userUrl = "https://api.github.com/users/";
-    private static $authKey = "?client_id=92e95931025ef214002d&client_secret=a4c5fb9e89d0f073f65394933f4871a541c00818";
 
     /**
      * @param $username
@@ -26,9 +25,13 @@ class UserData {
      * @throws InvalidUrlException
      * @throws InvalidUsernameException
      */
-    static function makeApiCall($username)
+    public static function makeApiCall($username)
     {
-        $url = self::$userUrl . $username . self::$authKey;
+
+        $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../');
+        $dotenv->load();
+
+        $url = self::$userUrl . $username . '?client_id=' . getenv('GITHUB_CLIENT_ID') . '&client_secret=' . getenv('GITHUB_CLIENT_SECRET');
 
         // Initiate curl
         $curl = curl_init();

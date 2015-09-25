@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This package takes the GitHub username of an individual and grades this user,
  * based on the number of public repositories this user owns, as one of these:

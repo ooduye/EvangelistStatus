@@ -4,6 +4,10 @@ namespace League\EvangelistStatus\Test;
 
 use League\EvangelistStatus\EvangelistStatus;
 
+/**
+ * Class EvangelistStatusTest
+ * @package League\EvangelistStatus\Test
+ */
 class EvangelistStatusTest extends \PHPUnit_Framework_TestCase
 {
     /**
